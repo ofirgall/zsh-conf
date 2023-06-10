@@ -14,9 +14,6 @@ zinit snippet OMZP::tmux
 zinit ice wait lucid
 zinit snippet OMZP::rust
 
-zinit ice svn
-zinit snippet OMZP::gitfast
-
 ## Custom Plugins ##
 if [[ ! -z $VIM_MODE && ${ZSH_VERSION:0:3} -ge 5.1 ]]; then
 	zinit ice depth=1
