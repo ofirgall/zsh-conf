@@ -33,7 +33,7 @@ ZSH_FZF_HISTORY_SEARCH_FZF_EXTRA_ARGS='--height=10 --reverse'
 # ---------------------------
 #	histdb integ for zsh-autosuggestions
 # ---------------------------
-if [[ ${ZSH_VERSION:0:3} -ge 5.1 ]]; then
+if [[ ${ZSH_VERSION:0:3} -ge 5.1 ]] && command -v sqlite3 &> /dev/null; then
 	_zsh_autosuggest_strategy_histdb_top() {
 		local query="
 			select commands.argv from history
