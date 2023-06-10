@@ -15,28 +15,26 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 # ---------------------------
 
-optional_source () {
-    [[ -f "$1" ]] && source "$1"
+# Source zsh-conf file and user-zsh-conf file
+source_conf () {
+    source "$HOME/.zsh-conf/$1"
+    [[ -f "$HOME/.my-zsh-conf/$1" ]] && source "$HOME/.my-zsh-conf/$1"
 }
 
 # ---------------------------
 # Source the actual .zshrc files
 # ---------------------------
-optional_source $HOME/.my-zsh-conf/vars.zsh
-
-source $HOME/.zsh-conf/aliases.zsh
-optional_source $HOME/.my-zsh-conf/aliases.zsh
-source $HOME/.zsh-conf/settings.zsh
-optional_source $HOME/.my-zsh-conf/settings.zsh
-source $HOME/.zsh-conf/design.zsh
-optional_source $HOME/.my-zsh-conf/design.zsh
-source $HOME/.zsh-conf/plugins.zsh
-optional_source $HOME/.my-zsh-conf/plugins.zsh
-source $HOME/.zsh-conf/hooks.zsh
-optional_source $HOME/.my-zsh-conf/hooks.zsh
+source_conf vars.zsh
+source_conf aliases.zsh
+source_conf settings.zsh
+source_conf design.zsh
+source_conf plugin_settings.zsh
+source_conf plugins.zsh
+source_conf hooks.zsh
+source_conf binaries.zsh
 
 # Source user zsh rc
-optional_source $HOME/.my_zshrc
+[[ -f "$HOME/.my_zshrc" ]] && source "$HOME/.my_zshrc"
 
 # Typer (must be in .zshrc, typer adding it if it doesn't)
 autoload -Uz compinit
@@ -50,5 +48,4 @@ source /home/ofirg/.config/broot/launcher/bash/br
 # ---------------------------
 # Source post_init.zsh at the end
 # ---------------------------
-source $HOME/.zsh-conf/post_init.zsh
-optional_source $HOME/.my-zsh-conf/post_init.zsh
+source_conf post_init.zsh
