@@ -22,6 +22,8 @@ optional_source () {
 # ---------------------------
 # Source the actual .zshrc files
 # ---------------------------
+optional_source $HOME/.my-zsh-conf/vars.zsh
+
 source $HOME/.zsh-conf/aliases.zsh
 optional_source $HOME/.my-zsh-conf/aliases.zsh
 source $HOME/.zsh-conf/settings.zsh
