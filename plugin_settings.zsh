@@ -8,11 +8,6 @@ ZSH_TMUX_AUTOQUIT=false
 ZSH_TMUX_FIXTERM=false
 
 # ---------------------------
-#		  ofirgall/cd-to-git
-# ---------------------------
-export CD_TO_GIT_DEFAULT_DIR=~/workspace/work/
-
-# ---------------------------
 #		  FZF Tab
 # ---------------------------
 if [[ ${ZSH_VERSION:0:3} -ge 5.8 ]]; then
@@ -34,12 +29,6 @@ fi
 #		  FZF History
 # ---------------------------
 ZSH_FZF_HISTORY_SEARCH_FZF_EXTRA_ARGS='--height=10 --reverse'
-
-# ---------------------------
-#		zsh-auto-notify
-# ---------------------------
-export AUTO_NOTIFY_THRESHOLD=600 # 10 minutes
-export AUTO_NOTIFY_IGNORE=("docker" "man" "sleep" "nvim" "nvlog" "./envctl.py" "pg" "python" "python3" "python2" "viewer" "lsj" "ssh" "rssh" "assh" "gshow" "nv" "v")
 
 # ---------------------------
 #	histdb integ for zsh-autosuggestions

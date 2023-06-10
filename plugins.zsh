@@ -1,7 +1,6 @@
 # ---------------------------
 #		  Plugins
 # ---------------------------
-source $HOME/.zsh_conf/plugin_settings.zsh
 ## oh-my-zsh plugins ##
 zinit ice wait lucid
 zinit snippet OMZP::pip
@@ -19,7 +18,7 @@ zinit ice svn
 zinit snippet OMZP::gitfast
 
 ## Custom Plugins ##
-if [[ ${ZSH_VERSION:0:3} -ge 5.1 ]]; then
+if [[ ! -z $VIM_MODE && ${ZSH_VERSION:0:3} -ge 5.1 ]]; then
 	zinit ice depth=1
 	zinit light jeffreytse/zsh-vi-mode
 fi
@@ -55,8 +54,3 @@ zinit wait lucid atload"zicompinit; zicdreplay" blockf for \
 
 zinit ice wait lucid
 zinit light hlissner/zsh-autopair
-
-if ! $IS_REMOTE; then
-	zinit ice wait lucid
-	zinit light MichaelAquilina/zsh-auto-notify
-fi
