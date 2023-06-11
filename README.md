@@ -7,6 +7,7 @@ mv ~/.zshrc ~/.zshrc_bakup # Backup your zshrc
 
 git clone --depth=1 https://github.com/ofirgall/zsh-conf ~/.zsh-conf/ # Clone zsh-conf
 ln -s ~/.zsh-conf/entrypoint.zsh ~/.zshrc # Link ~/.zshrc to point to ~/.zsh-conf/entrypoint.zsh
+ln -s ~/.zsh-conf/env.zsh ~/.zshenv # Link ~/.zshenv to point to ~/.zsh-conf/env.zsh
 ln -s ~/.zsh-conf/starship.toml ~/.config/starship.toml # Link starship config
 
 # Generate personal zsh config folder

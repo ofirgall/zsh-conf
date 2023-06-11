@@ -19,3 +19,5 @@ export LC_ALL=en_US.UTF-8
 
 # MANPATH
 export MANPATH="$HOME/pkgs/usr/share/man:$HOME/.npm-packages/share/man:$MANPATH"
+
+[[ -f "$HOME/.my-zsh-conf/env.zsh" ]] && source "$HOME/.my-zsh-conf/env.zsh"
