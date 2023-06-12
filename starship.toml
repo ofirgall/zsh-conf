@@ -15,6 +15,7 @@ pink = '#fc68e1'
 teal = '#3ae0b4'
 # green = '#a6e22e'
 green = '#07b516'
+red = '#eb0909'
 
 # ---------------------------
 #          CUSTOMS
@@ -35,14 +36,16 @@ success_symbol = '[](bold green)'
 error_symbol = '[](bold red)'
 
 [username]
-format = '[$user]($style):'
+format = '[$user]($style)'
 style_user = 'pink'
+style_root = 'red'
 show_always = true
 
 [directory]
 truncate_to_repo = false
 style = 'purple'
 truncation_length = 999
+format=':[$path]($style)[$read_only]($read_only_style) '
 
 [git_branch]
 style = 'teal'
@@ -65,3 +68,8 @@ disabled = true
 
 [golang]
 style='bold yellow'
+
+[hostname]
+ssh_symbol = '@'
+style = 'bold green'
+format = '[$ssh_symbol$hostname]($style)'
