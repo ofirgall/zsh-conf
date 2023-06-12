@@ -15,10 +15,14 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 # ---------------------------
 
+optional_source() {
+    [[ -f "$1" ]] && source "$1"
+}
+
 # Source zsh-conf file and user-zsh-conf file
 source_conf () {
     source "$HOME/.zsh-conf/$1"
-    [[ -f "$HOME/.my-zsh-conf/$1" ]] && source "$HOME/.my-zsh-conf/$1"
+    optional_source "$HOME/.my-zsh-conf/$1"
 }
 
 # ---------------------------
@@ -34,7 +38,7 @@ source_conf hooks.zsh
 source_conf binaries.zsh
 
 # Source user zsh rc
-[[ -f "$HOME/.my_zshrc" ]] && source "$HOME/.my_zshrc"
+optional_source "$HOME/.my_zshrc"
 
 # Typer (must be in .zshrc, typer adding it if it doesn't)
 autoload -Uz compinit
@@ -43,7 +47,7 @@ fpath+=~/.zfunc
 compinit # Build completions
 
 ### Added by broot
-source /home/ofirg/.config/broot/launcher/bash/br
+optional_source "$HOME/.config/broot/launcher/bash/br"
 
 # ---------------------------
 # Source post_init.zsh at the end
