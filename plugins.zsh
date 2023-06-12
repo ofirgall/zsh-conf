@@ -8,8 +8,10 @@ zinit snippet OMZP::pip
 zinit ice wait lucid
 zinit snippet OMZP::sudo
 
-zinit ice wait lucid
-zinit snippet OMZP::tmux
+if command -v tmux &> /dev/null; then
+	zinit ice wait lucid
+	zinit snippet OMZP::tmux
+fi
 
 zinit ice wait lucid
 zinit snippet OMZP::rust
