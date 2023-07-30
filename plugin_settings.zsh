@@ -23,6 +23,9 @@ if [[ ${ZSH_VERSION:0:3} -ge 5.8 ]]; then
 	zstyle ':fzf-tab:*' switch-group ',' '.'
 
 	zstyle ':fzf-tab:*' continuous-trigger '\'
+
+	# case insensitive
+	zstyle ':fzf-tab:*' fzf-flags '-i'
 fi
 
 # ---------------------------
