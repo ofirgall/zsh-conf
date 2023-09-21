@@ -3,6 +3,12 @@ alias pwdc='echo \"$(pwd)\" | tr -d "\n" | toclip'
 alias pwdcd='echo "cd \"$(pwd)\"" | toclip'
 
 function get_ticket() {
+	# If argument passed parse ticket num from the arg
+	if [ -n "$1" ]; then
+		echo "$1" | grep -oP "([A-Z]+-[0-9]+)"
+		return
+	fi
+
 	local branch=$(git rev-parse --abbrev-ref HEAD 2>&1 | tr -d "\n")
 	if echo $branch | grep -q "fatal"; then
 		# non git folder, try to from pwd
@@ -28,9 +34,9 @@ alias cdl='cd "$_"' # cd to last arg (usefull after mkdir)
 function p() { python -c "print($@)"} # run single python command
 alias drop_cache='sync; echo 1 | sudo tee /proc/sys/vm/drop_caches'
 
-# Create log dir & cd for a the current ticket
+# Create log dir & cd for the current ticket by git/pwd/passed argument
 function logs() {
-	ticket=$(get_ticket)
+	ticket=$(get_ticket $1)
 	if ! test -d ~/logs/$ticket; then
 		mkdir -p ~/logs/$ticket
 	fi
