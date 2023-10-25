@@ -28,6 +28,13 @@ symbol = ''
 style = 'light_red'
 format = '[$symbol $output]($style) '
 
+[custom.linked_env]
+command = "cat .linked_env"
+detect_files = ['.linked_env']
+symbol = ''
+style = 'teal'
+format = '[$symbol $output]($style) '
+
 # ---------------------------
 #          MODULES
 # ---------------------------
