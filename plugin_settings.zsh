@@ -52,3 +52,8 @@ if [[ ${ZSH_VERSION:0:3} -ge 5.1 ]] && command -v sqlite3 &> /dev/null; then
 
 	ZSH_AUTOSUGGEST_STRATEGY=histdb_top
 fi
+
+# ---------------------------
+#		  zsh-vi-mode
+# ---------------------------
+export ZVM_VI_SURROUND_BINDKEY="s-prefix"
