@@ -32,7 +32,7 @@ format = '[$symbol $output]($style) '
 command = "cat .linked_env"
 detect_files = ['.linked_env']
 symbol = ''
-style = 'teal'
+style = 'pink'
 format = '[$symbol $output]($style) '
 
 # ---------------------------
