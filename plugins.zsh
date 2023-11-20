@@ -22,7 +22,7 @@ if [[ ! -z $VIM_MODE && ${ZSH_VERSION:0:3} -ge 5.1 ]]; then
 	zinit light jeffreytse/zsh-vi-mode
 fi
 
-zinit ice wait lucid atload'_zsh_autosuggest_start; bindkey "^ " autosuggest-accept'
+zinit ice wait lucid atload'_zsh_autosuggest_start; source_conf binds.zsh' # Lazy load binds
 zinit light zsh-users/zsh-autosuggestions
 
 if [[ ${ZSH_VERSION:0:3} -ge 5.8 ]]; then
