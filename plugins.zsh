@@ -5,8 +5,14 @@
 zinit ice wait lucid
 zinit snippet OMZP::pip
 
-zinit ice wait lucid
-zinit snippet OMZP::sudo
+# Check if VIM_MODE is enabled and zsh version is greater than 5.1 to enable zsh-vi-mode
+_VIM_MODE=$(( $VIM_MODE == 1 && ${ZSH_VERSION:0:3} >= 5.1 ))
+
+# sudo by pressing ESC twice, don't load with vim mode enabled
+if [[ $_VIM_MODE == 0 ]]; then
+	zinit ice wait lucid
+	zinit snippet OMZP::sudo
+fi
 
 if command -v tmux &> /dev/null; then
 	zinit ice wait lucid
@@ -17,7 +23,7 @@ zinit ice wait lucid
 zinit snippet OMZP::rust
 
 ## Custom Plugins ##
-if [[ ! -z $VIM_MODE && ${ZSH_VERSION:0:3} -ge 5.1 ]]; then
+if [[ $_VIM_MODE == 1 ]]; then
 	zinit ice depth=1
 	zinit light jeffreytse/zsh-vi-mode
 fi
