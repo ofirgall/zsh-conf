@@ -50,7 +50,7 @@ show_always = true
 
 [directory]
 truncate_to_repo = false
-style = 'purple'
+style = 'bold purple'
 truncation_length = 999
 format=':[$path]($style)[$read_only]($read_only_style) '
 
