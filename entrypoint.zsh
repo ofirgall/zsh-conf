@@ -31,11 +31,11 @@ source_conf () {
 source_conf vars.zsh
 source_conf aliases.zsh
 source_conf settings.zsh
+source_conf binaries.zsh
 source_conf design.zsh
 source_conf plugin_settings.zsh
 source_conf plugins.zsh
 source_conf hooks.zsh
-source_conf binaries.zsh
 
 # Source user zsh rc
 optional_source "$HOME/.my_zshrc"
