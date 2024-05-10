@@ -1,5 +1,5 @@
 # Zsh Config
-Extendable zsh config powered by [zinit](https://github.com/zdharma-continuum/zinit) + [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh).
+Extensible zsh config powered by [zinit](https://github.com/zdharma-continuum/zinit) + [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh).
 
 ## Installation
 ```bash
