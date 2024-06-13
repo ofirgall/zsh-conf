@@ -5,7 +5,7 @@
 
 # Add oh-my-zsh completions dir
 fpath+=$ZSH_CACHE_DIR/completions/
-mkdir $ZSH_CACHE_DIR/completions/
+mkdir -p $ZSH_CACHE_DIR/completions/
 
 zinit ice wait lucid
 zinit snippet OMZP::pip
