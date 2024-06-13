@@ -27,6 +27,7 @@ _gen_starship() {
     yq eval-all -oy --expression '. as $item ireduce ({}; . *+d $item)' $dir/*.yaml > $dir/merged.yaml
 
     # convert merged yaml to toml
+    rm "$HOME/.config/starship.toml" # force re-creation of starship.toml
     cat $dir/merged.yaml | yj -yt > "$HOME/.config/starship.toml"
 
     rm -rf $dir
