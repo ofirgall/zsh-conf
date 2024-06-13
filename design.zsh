@@ -34,7 +34,7 @@ _gen_starship() {
 
 if [[ $(uname) == "Darwin" ]]; then
     local get_last_modified_time() {
-        [[ -f "$1" ]] && stat -f %Y $1
+        [[ -f "$1" ]] && stat -f %B $1
     }
 else
     local get_last_modified_time() {
