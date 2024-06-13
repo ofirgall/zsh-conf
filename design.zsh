@@ -16,9 +16,11 @@ _gen_starship() {
     # Convert all files to yamls before merging
     local dir=$(mktemp -d)
     local i=0
-    for f2 in $_starship_files; do
-        yq eval -oy $f2 > $dir/$i.yaml
-        ((i++))
+    for f in $_starship_files; do
+        if [[ -f "$f" ]]; then
+            yq eval -oy $f > $dir/$i.yaml
+            ((i++))
+        fi
     done
 
     # merge all yamls
