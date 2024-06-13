@@ -30,9 +30,15 @@ _gen_starship() {
     rm -rf $dir
 }
 
-local get_last_modified_time() {
-    [[ -f "$1" ]] && stat -c %Y $1
-}
+if [[ $(uname) == "Darwin" ]]; then
+    local get_last_modified_time() {
+        [[ -f "$1" ]] && stat -f %Y $1
+    }
+else
+    local get_last_modified_time() {
+        [[ -f "$1" ]] && stat -c %Y $1
+    }
+fi
 
 if [[ $NERD_FONT == 1 ]]; then
     _starship_files=("$HOME/.zsh-conf/starship.toml" "$HOME/.zsh-conf/starship_nerdfont.toml" "$HOME/.my-zsh-conf/starship.toml")
@@ -42,7 +48,7 @@ fi
 local last_time_generated=$(get_last_modified_time "$HOME/.config/starship.toml")
 
 for f in $_starship_files; do
-    if [ $(get_last_modified_time $f) -gt $last_time_generated ]; then
+    if [[ $(get_last_modified_time $f) -gt $last_time_generated ]]; then
         _gen_starship
         break
     fi
