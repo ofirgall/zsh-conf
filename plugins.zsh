@@ -6,7 +6,7 @@ zinit ice wait lucid
 zinit snippet OMZP::pip
 
 # Check if VIM_MODE is enabled and zsh version is greater than 5.1 to enable zsh-vi-mode
-_VIM_MODE=$(( $VIM_MODE == 1 && ${ZSH_VERSION:0:3} >= 5.1 ))
+_VIM_MODE=$(( ${VIM_MODE:-0} == 1 && ${ZSH_VERSION:0:3} >= 5.1 ))
 
 # sudo by pressing ESC twice, don't load with vim mode enabled
 if [[ $_VIM_MODE == 0 ]]; then
