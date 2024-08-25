@@ -20,7 +20,7 @@ if [[ ${ZSH_VERSION:0:3} -ge 5.8 ]]; then
 	# preview directory's content with exa when completing cd
 	zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -1 --color=always $realpath'
 	# switch group using `,` and `.`
-	zstyle ':fzf-tab:*' switch-group ',' '.'
+	zstyle ':fzf-tab:*' switch-group 'F1' 'F2'
 
 	zstyle ':fzf-tab:*' continuous-trigger '\'
 
