@@ -12,7 +12,16 @@ function get_ticket() {
 	local branch=$(git rev-parse --abbrev-ref HEAD 2>&1 | tr -d "\n")
 	if echo $branch | grep -q "fatal"; then
 		# non git folder, try to from pwd
-		echo "$PWD" | grep -oP "([A-Z]+-[0-9]+)"
+		local from_pwd=$(echo "$PWD" | grep -oP "([A-Z]+-[0-9]+)")
+		if [ -z $from_pwd ]; then
+			if [ -n "$TMUX" ]; then
+				# failed from pwd, try from current tmux session
+				local current_session=$(tmux display-message -p '#S')
+				echo "$current_session" | grep -oP "([A-Z]+-[0-9]+)"
+			fi
+		else
+			echo $from_pwd
+		fi
 	else
 		echo $branch | grep -oP ".+/\K([A-Z]+-[0-9]+)"
 	fi
