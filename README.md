@@ -31,6 +31,7 @@ For example [my-zsh-conf](https://github.com/ofirgall/dotfiles/tree/master/dotfi
 
 ## Plugins
 - [starship](https://github.com/starship/starship) - Prompt.
+- [eza](https://github.com/eza-community/eza) - Modern alternative to ls.
 - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) - Suggest completions with dimmed text (hit `Right` to accept)
 - [fzf-tab](https://github.com/Aloxaf/fzf-tab) - Use [fzf](https://github.com/junegunn/fzf) for tab completions.
 - [zsh-fzf-history-search](https://github.com/joshskidmore/zsh-fzf-history-search) - Use [fzf](https://github.com/junegunn/fzf) for reverse search (ctrl-r).

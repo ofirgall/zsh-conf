@@ -19,11 +19,8 @@ zinit snippet OMZL::completion.zsh
 zinit ice wait lucid
 zinit snippet OMZL::correction.zsh
 
-# Not lucid to override alias later
+zinit ice wait lucid
 zinit snippet OMZL::directories.zsh
-# Override ll of oh-my-zsh
-alias ll='ls -alF'
-alias l='ls -alF'
 
 zinit ice wait lucid
 zinit snippet OMZL::grep.zsh
@@ -31,3 +28,6 @@ zinit snippet OMZL::grep.zsh
 zinit ice wait lucid
 zinit snippet OMZL::misc.zsh
 
+# Lazy load ls_aliases after "theme-and-appearance.zsh" and "directories.zsh"
+zinit ice wait'1' link lucid
+zinit snippet lazy/ls_aliases.zsh

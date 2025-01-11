@@ -6,3 +6,6 @@ zi light mikefarah/yq
 
 zi ice from"gh-r" as"program" mv"yj* -> yj"
 zi light sclevine/yj
+
+zi ice from"gh-r" as"program"
+zi light eza-community/eza
