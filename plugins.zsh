@@ -10,6 +10,8 @@ mkdir -p $ZSH_CACHE_DIR/completions/
 zinit ice wait lucid
 zinit snippet OMZP::pip
 
+zinit light zdharma-continuum/fast-syntax-highlighting
+
 # Check if VIM_MODE is enabled and zsh version is greater than 5.1 to enable zsh-vi-mode
 _VIM_MODE=$(( ${VIM_MODE:-0} == 1 && ${ZSH_VERSION:0:3} >= 5.1 ))
 

@@ -42,6 +42,7 @@ For example [my-zsh-conf](https://github.com/ofirgall/dotfiles/tree/master/dotfi
 - [git-open](https://github.com/paulirish/git-open) - `git open` to open current git repo in browser.
 - [zsh-vi-mode](https://github.com/jeffreytse/zsh-vi-mode) - vim mode in zsh (Disabled by default).
 - [zsh-completions](https://github.com/zsh-users/zsh-completions) - Add more default completions.
+- [fast-syntax-highlighting](zdharma-continuum/fast-syntax-highlighting) - Syntax highlighting for ZSH.
 
 
 ### Config loading order
