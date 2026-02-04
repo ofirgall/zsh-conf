@@ -23,13 +23,14 @@ function get_ticket() {
 			echo $from_pwd
 		fi
 	else
-		echo $branch | grep -oP ".+/\K([A-Z]+-[0-9]+)"
+		echo $branch | grep -oP "([A-Z]+-[0-9]+)"
 	fi
 }
 
 # Tickets & Branches
 alias cticket='get_ticket | toclip'
 alias ticket='open $JIRA_URL/browse/$(get_ticket)'
+alias jira='ticket'
 alias cbranch='git rev-parse --abbrev-ref HEAD | tr -d "\n" | toclip'
 
 # Tmux
