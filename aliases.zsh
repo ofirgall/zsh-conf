@@ -27,11 +27,15 @@ function get_ticket() {
 	fi
 }
 
+function get_branch() {
+	git rev-parse --abbrev-ref HEAD
+}
+
 # Tickets & Branches
 alias cticket='get_ticket | toclip'
 alias ticket='open $JIRA_URL/browse/$(get_ticket)'
 alias jira='ticket'
-alias cbranch='git rev-parse --abbrev-ref HEAD | tr -d "\n" | toclip'
+alias cbranch='get_branch | tr -d "\n" | toclip'
 
 # Tmux
 alias tkill='tmux kill-session'
