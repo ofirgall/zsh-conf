@@ -78,3 +78,28 @@ alias gdiff='git diff'
 alias gshow='git show'
 alias grim='git rebase -i origin/master'
 alias groot='cd $(git rev-parse --show-toplevel)'
+
+# Watch a GitHub Actions run and notify when done
+function gh-notify() {
+	if [ -z "$1" ]; then
+		echo "Usage: gh-notify <run_url_or_id>"
+		return 1
+	fi
+
+	local run_id repo_flag
+	run_id=$(echo "$1" | grep -oP 'runs/\K[0-9]+' || echo "$1")
+
+	# If no match from the URL pattern, assume the raw input is the ID
+	if [ -z "$run_id" ]; then
+		run_id="$1"
+	fi
+
+	# Extract repo owner/name from URL if provided
+	local repo
+	repo=$(echo "$1" | grep -oP 'github\.com/\K[^/]+/[^/]+')
+	if [ -n "$repo" ]; then
+		repo_flag=(--repo "$repo")
+	fi
+
+	gh run watch "$run_id" "${repo_flag[@]}" && notify-send "GitHub Actions" "Github Run Action is Done!"
+}
