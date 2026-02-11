@@ -33,7 +33,10 @@ function get_branch() {
 
 # Tickets & Branches
 alias cticket='get_ticket | toclip'
-alias ticket='open $JIRA_URL/browse/$(get_ticket)'
+function ticket() {
+	local t="${1:-$(get_ticket)}"
+	open "$JIRA_URL/browse/$t"
+}
 alias jira='ticket'
 alias cbranch='get_branch | tr -d "\n" | toclip'
 
