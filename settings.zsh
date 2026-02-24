@@ -30,4 +30,4 @@ zinit snippet OMZL::misc.zsh
 
 # Lazy load ls_aliases after "theme-and-appearance.zsh" and "directories.zsh"
 zinit ice wait'1' link lucid
-zinit snippet lazy/ls_aliases.zsh
+zinit snippet $HOME/.zsh-conf/lazy/ls_aliases.zsh
