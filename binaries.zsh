@@ -7,5 +7,11 @@ zi light mikefarah/yq
 zi ice from"gh-r" as"program" mv"yj* -> yj"
 zi light sclevine/yj
 
-zi ice from"gh-r" as"program"
-zi light eza-community/eza
+if [[ $(uname) == "Darwin" ]]; then
+	if ! command -v eza &> /dev/null; then
+		brew install eza
+	fi
+else
+	zi ice from"gh-r" as"program"
+	zi light eza-community/eza
+fi
