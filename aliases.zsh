@@ -31,6 +31,10 @@ function get_branch() {
 	git rev-parse --abbrev-ref HEAD
 }
 
+function get_commit() {
+	git rev-parse HEAD
+}
+
 # Tickets & Branches
 alias cticket='get_ticket | toclip'
 function ticket() {
@@ -39,6 +43,7 @@ function ticket() {
 }
 alias jira='ticket'
 alias cbranch='get_branch | tr -d "\n" | toclip'
+alias ccmt='get_commit | tr -d "\n" | toclip'
 
 # Tmux
 alias tkill='tmux kill-session'
