@@ -114,23 +114,26 @@ function gh-notify() {
 
 # Watch all PR checks (including bot-triggered runs) and notify when done
 function gh-notify-pr() {
-	if [ -z "$1" ]; then
-		echo "Usage: gh-notify-pr <pr_number_or_url>"
-		return 1
-	fi
-
 	local pr repo_flag=()
 
-	local repo
-	repo=$(echo "$1" | grep -oP 'github\.com/\K[^/]+/[^/]+')
-	pr=$(echo "$1" | grep -oP 'pull/\K[0-9]+' || echo "$1")
+	if [ -z "$1" ]; then
+		pr=$(gh pr view --json number --jq '.number' 2>/dev/null)
+		if [ -z "$pr" ]; then
+			echo "No open PR found for the current branch."
+			return 1
+		fi
+	else
+		local repo
+		repo=$(echo "$1" | grep -oP 'github\.com/\K[^/]+/[^/]+')
+		pr=$(echo "$1" | grep -oP 'pull/\K[0-9]+' || echo "$1")
 
-	if [ -z "$pr" ]; then
-		pr="$1"
-	fi
+		if [ -z "$pr" ]; then
+			pr="$1"
+		fi
 
-	if [ -n "$repo" ]; then
-		repo_flag=(--repo "$repo")
+		if [ -n "$repo" ]; then
+			repo_flag=(--repo "$repo")
+		fi
 	fi
 
 	echo "Watching all checks for PR #$pr..."
