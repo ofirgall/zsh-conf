@@ -36,6 +36,7 @@ source_conf design.zsh
 source_conf plugin_settings.zsh
 source_conf plugins.zsh
 source_conf hooks.zsh
+source_conf completions.zsh
 
 # Source user zsh rc
 optional_source "$HOME/.my_zshrc"
