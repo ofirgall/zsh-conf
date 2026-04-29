@@ -18,7 +18,15 @@ if [[ ${ZSH_VERSION:0:3} -ge 5.8 ]]; then
 	# set list-colors to enable filename colorizing
 	zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 	# preview directory's content with exa when completing cd
-	zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -1 --color=always $realpath'
+	zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -lh --color=always --time-style=long-iso $realpath'
+	# preview any file/dir argument with mtime + contents
+	zstyle ':fzf-tab:complete:*:*' fzf-preview "source ${0:A:h}/fzf-tab-preview.zsh"
+	# sort files by modification time (newest first)
+	zstyle ':completion:*' file-sort modification
+	zstyle ':completion:*' sort false
+	zstyle ':completion:files' sort false
+	# preserve completion system order instead of alphabetizing
+	zstyle ':fzf-tab:*' sort false
 	# switch group using `,` and `.`
 	zstyle ':fzf-tab:*' switch-group 'F1' 'F2'
 
