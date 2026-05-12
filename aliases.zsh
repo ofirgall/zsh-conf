@@ -137,7 +137,7 @@ function gh-notify-pr() {
 	fi
 
 	echo "Watching all checks for PR #$pr..."
-	if gh pr checks "$pr" "${repo_flag[@]}" --watch --fail-fast; then
+	if gh pr checks "$pr" "${repo_flag[@]}" --watch; then
 		notify-send "GitHub Actions" "All checks passed for PR #$pr!"
 	else
 		notify-send "GitHub Actions" "Some checks failed for PR #$pr"
