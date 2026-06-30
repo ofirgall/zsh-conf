@@ -32,6 +32,8 @@ if [[ ${ZSH_VERSION:0:3} -ge 5.8 ]]; then
 
 	zstyle ':fzf-tab:*' continuous-trigger '\'
 
+	zstyle ':fzf-tab:*' fzf-bindings 'ctrl-n:toggle+down' 'ctrl-p:toggle+up' 'ctrl-a:toggle-all'
+
 	# case insensitive
 	zstyle ':fzf-tab:*' fzf-flags '-i'
 fi

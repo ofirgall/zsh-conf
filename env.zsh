@@ -7,7 +7,7 @@
 skip_global_compinit=1
 
 # fzf settings
-export FZF_DEFAULT_OPTS="--bind 'ctrl-n:toggle+down' --bind 'ctrl-p:toggle+up' --bind 'ctrl-a:toggle-all'"
+export FZF_DEFAULT_OPTS=""
 
 # PATH
 export PATH=~/.local/bin:$PATH
